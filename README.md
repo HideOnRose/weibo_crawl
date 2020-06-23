@@ -23,8 +23,11 @@ scrapy框架架构大体如下：<br>
 使用/表示选择该节点下的一级子元素，使用//选择该节点下的所有子元素<br>
 
 一些出现的问题：
-在selenium中，如果是要找元素组，应该是find_elements_by
-find_element_by
+* cookies每隔一段时间就会失效，需要重新获取
+* 在selenium中，如果是要找元素组，应该是find_elements_by_xpath, find_element_by找到的是单个元素,无法遍历
+* 微博的内容有一些需要展开全文，展开和无展开的内容中 元素的class有所不同，需要注意
+
+
 
 
 
