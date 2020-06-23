@@ -1,5 +1,5 @@
 # weibo_crawl
-###1.获取并保存cookies<br>
+##1.获取并保存cookies<br>
 getCookies文件使用selenium包中的webdriver工具打开网页<br>
 模拟点击和账号密码的输入后<br>
 获取cookies并保存到文件中<br>
