@@ -13,6 +13,7 @@ class WeiboSpider(scrapy.Spider):
         for one in weibo:
             #发博账号和微博内容
             name = one.xpath('.//a[@class="name"]/text()').get()
+            #没有展开全文选项的node-type为feed_list_content
             text = one.xpath(".//p[@node-type='feed_list_content_full']//text()")
             content = ''
             for i in text:
