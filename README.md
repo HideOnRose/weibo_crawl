@@ -8,7 +8,13 @@ getCookies文件使用selenium包中的webdriver工具打开网页<br>
 
 ### 2.使用scrapy框架爬取微博内容
 scrapy框架架构大体如下：<br>
-![](https://raw.githubusercontent.com/HideOnRose/weibo_crawl/master/img/scrapy.jpg)
+* 由引擎将start_requests交给调度器，将requests请求排序入队。
+* 调度器将处理好的request交给引擎
+* 引擎将request交给下载器，由下载器请求该request生成响应response，然后将response返回给引擎
+* 引擎将生成的response交给spider，在spider中对响应中的数据进行提取
+* spider将提取到的数据交给管道，管道对数据进行保存处理，如果是需要跟进的url，则交给调度器将该url生成request
+* 当调度器中不存在任何request了，整个程序才会停止，也就是说对于下载失败的url，scrapy也会重新下载
+
 
 因此要实现登录和提前点击，是在下载中间件中使用selenium，读取之前保存的cookies即可实现直接登录<br>
 
