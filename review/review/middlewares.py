@@ -115,7 +115,7 @@ class ReviewDownloaderMiddleware(object):
 class SeleniumMiddleware(object):
     def __init__(self, timeout=None, service_args=[]):
 
-        self.browser = webdriver.Chrome(r'C:\Program Files (x86)\Google\Chrome\Application\chromedriver.exe', options=chrome_options)
+        self.browser = webdriver.Chrome(r'chromedriver.exe', options=chrome_options)
 
     def __del__(self):
         self.browser.close()
@@ -124,7 +124,7 @@ class SeleniumMiddleware(object):
 
         self.browser.get(request.url)
 
-        with open(r'D:\CODE\python\市调爬虫\cookies.txt', 'r') as cookiefile:
+        with open(r'cookies.txt', 'r') as cookiefile:
             cookieslist = json.load(cookiefile)
             for cookie in cookieslist:
                 if 'expiry' in cookie:
@@ -132,7 +132,8 @@ class SeleniumMiddleware(object):
                 self.browser.add_cookie(cookie)
         self.browser.refresh()
         time.sleep(5)
-
+        
+        # 此部分内容用来点击评论按钮，以展开评论内容
         # selectors = self.browser.find_elements_by_xpath("//div[@class='m-wrap']/div[@class='m-con-l']"
         #                                                 "//div[@class='card-wrap']")
         # number = len(selectors)
