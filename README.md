@@ -8,6 +8,7 @@ getCookies文件使用selenium包中的webdriver工具打开网页<br>
 
 ### 2.使用scrapy框架爬取微博内容
 scrapy框架架构大体如下：
+![] (https://raw.githubusercontent.com/HideOnRose/weibo_crawl/master/img/scrapy.jpg)
 
 在中间件中使用selenium，读取之前保存的cookies即可实现直接登录<br>
 
